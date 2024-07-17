@@ -1,0 +1,17 @@
+{
+  "name": "airbnb-onlinemarketplace",
+  "version": "1.0.0",
+  "description": "<h1>Project Name : </h1> <h2>Online Marketplace</h2> <br>\r <h3>Objective - </h3>\r To create a web application that allows users to list, discover, and book accommodations and services, providing a seamless and user-friendly marketplace experience for both hosts and guests.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Shivraj Kaudare",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.1"
+  }
+}
