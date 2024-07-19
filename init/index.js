@@ -19,7 +19,7 @@ const initDB = async () => {
   try {
     // it delete previous data from database
     await Listing.deleteMany({});
-    // inserting data from data.js
+    // inserting data to DB from data.js
     await Listing.insertMany(initdata.data);
     console.log("Data Was Initialised");
   } catch (err) {
