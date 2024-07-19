@@ -16,10 +16,15 @@ async function main() {
 }
 
 const initDB = async () => {
-  await Listing.deleteMany({});
-
-  await Listing.insertMany(initdata.data);
-  console.log("Data Was Initialised");
+  try {
+    // it delete previous data from database
+    await Listing.deleteMany({});
+    // inserting data from data.js
+    await Listing.insertMany(initdata.data);
+    console.log("Data Was Initialised");
+  } catch (err) {
+    console.error("error initializing data :", err);
+  }
 };
 
 initDB();
