@@ -6,42 +6,39 @@
     <title>WonderLust</title>
   </head>
   <body>
-    <form method="POST" action="">
-      <label for="title"></label>
+    <h3>Edit your Listing</h3>
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
       <input
         name="listing[title]"
-        placeholder="enter title "
+        value="<%= listing.title %>"
         type="text"
       /><br />
       <br />
       <input
         name="listing[image]"
-        placeholder="enter image URL/link"
+        value="<%= listing.image %>"
         type="text"
       /><br /><br />
-      <textarea
-        name="listing[description]"
-        placeholder="enter description "
-        type="text"
+      <textarea name="listing[description]">
+        <%= listing.description %></textarea
       >
-      </textarea
-      ><br /><br />
+      <br /><br />
       <input
         name="listing[price]"
-        placeholder="enter price "
+        value="<%= listing.price %>"
         type="number"
       /><br /><br />
       <input
         name="listing[country]"
-        placeholder="enter country "
+        value="<%= listing.country %>"
         type="text"
       /><br /><br />
       <input
         name="listing[location]"
-        placeholder="enter location"
+        value="<%= listing.location %>"
         type="text"
       /><br /><br />
-      <button>Add</button>
+      <button>Edit</button>
     </form>
   </body>
 </html>
