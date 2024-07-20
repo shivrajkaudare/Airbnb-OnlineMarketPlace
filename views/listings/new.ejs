@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WonderLust</title>
+  </head>
+  <body>
+    <form method="POST" action="/listings">
+      <label for="title"></label>
+      <input
+        name="listing[title]"
+        placeholder="enter title "
+        type="text"
+      /><br />
+      <br />
+      <input
+        name="listing[image]"
+        placeholder="enter image URL/link"
+        type="text"
+      /><br /><br />
+      <textarea
+        name="listing[description]"
+        placeholder="enter description "
+        type="text"
+      >
+      </textarea
+      ><br /><br />
+      <input
+        name="listing[price]"
+        placeholder="enter price "
+        type="number"
+      /><br /><br />
+      <input
+        name="listing[country]"
+        placeholder="enter country "
+        type="text"
+      /><br /><br />
+      <input
+        name="listing[location]"
+        placeholder="enter location"
+        type="text"
+      /><br /><br />
+      <button>Add</button>
+    </form>
+  </body>
+</html>
