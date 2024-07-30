@@ -1,9 +1,17 @@
 body {
   font-family: "Plus Jakarta Sans", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 .body-con {
   margin: 1rem 1rem 2rem 3rem !important;
 }
+
+.container {
+  flex: 1;
+}
+
 /****  Navbar ***/
 
 .navbar {
