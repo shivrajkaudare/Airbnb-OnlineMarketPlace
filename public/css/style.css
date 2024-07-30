@@ -1,7 +1,9 @@
-/* body {
-  background-color: pink;
-} */
-
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+}
+.body-con {
+  margin: 1rem 1rem 2rem 3rem !important;
+}
 /****  Navbar ***/
 
 .navbar {
@@ -14,4 +16,63 @@
 }
 .nav-link {
   color: #222222 !important;
+}
+
+/******* Footer ******/
+.f-info-links a {
+  text-decoration: none;
+  color: #222222;
+}
+.f-info-links a:hover {
+  text-decoration: underline;
+}
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
+  width: 100%;
+}
+
+.f-info-socials i {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+.f-info {
+  height: 8rem;
+  text-align: center;
+  background-color: #ebebeb;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-evenly;
+}
+
+/*************** Cards *******************/
+
+.card {
+  border: none !important;
+  margin-bottom: 2rem;
+}
+.card-img-top {
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+.card-body {
+  padding: 0 !important;
+}
+.card-text p {
+  font-weight: 400 !important;
+}
+.listing-links {
+  text-decoration: none;
+}
+
+/* Card effect / overlay */
+.card-img-overlay {
+  opacity: 0;
+}
+
+.card-img-overlay:hover {
+  opacity: 0.2;
+  background-color: white;
 }
