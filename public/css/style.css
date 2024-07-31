@@ -85,6 +85,8 @@ body {
   background-color: white;
 }
 
-.add-btn{
-  
+/* new.ejs page */
+.add-btn {
+  background-color: #fe424d !important;
+  border: none !important;
 }
