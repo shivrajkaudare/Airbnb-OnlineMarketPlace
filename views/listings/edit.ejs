@@ -4,7 +4,12 @@
   <div class="row mt-3">
     <div class="col-8 offset-1">
       <h3>Edit your Listing</h3>
-      <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
+      <form
+        method="POST"
+        action="/listings/<%= listing._id %>?_method=PUT"
+        novalidate
+        class="needs-validation"
+      >
         <div class="mb-3">
           <label for="title" class="form-label">Title :</label>
           <input
@@ -15,6 +20,8 @@
             class="form-control"
             required
           />
+          <div class="invalid-feedback">Title Should not be empty</div>
+          <div class="valid-feedback">Title looks Good!</div>
         </div>
         <br />
         <br />
@@ -29,6 +36,8 @@
           >
         <%= listing.description %></textarea
           >
+          <div class="invalid-feedback">Add a short decription</div>
+          <div class="valid-feedback">description looks Good!</div>
         </div>
         <br /><br />
         <div class="mb-3">
@@ -39,7 +48,9 @@
             type="text"
             id="image"
             class="form-control"
+            required
           />
+          <div class="invalid-feedback">Enter a Image URL</div>
         </div>
         <br /><br />
 
@@ -54,6 +65,8 @@
               class="form-control"
               required
             />
+            <div class="invalid-feedback">Enter a Price</div>
+            <div class="valid-feedback">Valid !</div>
           </div>
           <br /><br />
           <div class="mb-3 col-md-8">
@@ -66,6 +79,7 @@
               class="form-control"
               required
             />
+            <div class="invalid-feedback">Please Select Your Country</div>
           </div>
         </div>
         <br /><br />
@@ -79,6 +93,7 @@
             class="form-control"
             required
           />
+          <div class="invalid-feedback">Please Select Your Location</div>
         </div>
 
         <button class="btn btn-dark edit-btn mt-3">Edit</button>

@@ -50,12 +50,16 @@ app.get("/listings/:id", async (req, res) => {
 });
 
 // Create route.
-app.post("/listings", async (req, res) => {
-  // let { title, description, image, price, country, location } = req.body;
-  const newListing = new Listing(req.body.listing);
-  await newListing.save();
-  console.log(newListing);
-  res.redirect("/listings");
+app.post("/listings", async (req, res, next) => {
+  try {
+    // let { title, description, image, price, country, location } = req.body;
+    const newListing = new Listing(req.body.listing);
+    await newListing.save();
+    console.log(newListing);
+    res.redirect("/listings");
+  } catch (err) {
+    next(err);
+  }
 });
 
 //Edit Route
@@ -93,6 +97,11 @@ app.delete("/listings/:id", async (req, res) => {
 //   console.log("Sample was saved");
 //   res.send("Sucessful Tesing.");
 // });
+
+// Middleware for server side error handling.
+app.use((req, res, err) => {
+  res.send("Something Went Wrong ");
+});
 
 const port = 8080;
 app.listen(port, () => {
