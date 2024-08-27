@@ -7,6 +7,7 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utilities/wrapAsync.js");
 const ExpressError = require("./utilities/ExpressError.js");
+const { listingSchema } = require("./schema.js");
 
 // connection with Database
 const MONGO_URL = "mongodb://127.0.0.1:27017/wonderlust";
@@ -61,10 +62,10 @@ app.get(
 app.post(
   "/listings",
   wrapAsync(async (req, res, next) => {
-    // error handling if user does not send listing data
-    if (!req.body.listing) {
-      throw new ExpressError(400, "Send Valid Data For listing");
-    }
+    // error handling if user does not or send incorrect data that not maches listing schema
+    let result = listingSchema.validate(req.body);
+    console.log(result);
+
     // let { title, description, image, price, country, location } = req.body;
     const newListing = new Listing(req.body.listing);
     await newListing.save();
