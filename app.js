@@ -61,6 +61,10 @@ app.get(
 app.post(
   "/listings",
   wrapAsync(async (req, res, next) => {
+    // error handling if user does not send listing data
+    if (!req.body.listing) {
+      throw new ExpressError(400, "Send Valid Data For listing");
+    }
     // let { title, description, image, price, country, location } = req.body;
     const newListing = new Listing(req.body.listing);
     await newListing.save();
@@ -83,6 +87,9 @@ app.get(
 app.put(
   "/listings/:id",
   wrapAsync(async (req, res) => {
+    if (!req.body.listing) {
+      throw new ExpressError(400, "Send Valid Data For listing");
+    }
     let { id } = req.params;
     await Listing.findByIdAndUpdate(id, { ...req.body.listing });
     res.redirect(`/listings/${id}`);
@@ -121,8 +128,9 @@ app.all("*", (req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
-  let { statusCode, message } = err;
-  res.status(statusCode).send(message);
+  let { statusCode = 500, message = "Something Went Wrong !" } = err;
+  res.status(statusCode).render("error.ejs", { message });
+  // res.status(statusCode).send(message);
 });
 
 const port = 8080;
