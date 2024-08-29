@@ -65,6 +65,9 @@ app.post(
     // error handling if user does not or send incorrect data that not maches listing schema
     let result = listingSchema.validate(req.body);
     console.log(result);
+    if (result.error) {
+      throw new ExpressError(400, result.error);
+    }
 
     // let { title, description, image, price, country, location } = req.body;
     const newListing = new Listing(req.body.listing);
