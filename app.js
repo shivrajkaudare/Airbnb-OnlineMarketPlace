@@ -23,6 +23,7 @@ async function main() {
   await mongoose.connect(MONGO_URL);
 }
 
+// Middleware
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
@@ -34,7 +35,7 @@ app.get("/", (req, res) => {
   res.send("hello iam a root");
 });
 
-// Index route
+// Index route.
 app.get(
   "/listings",
   wrapAsync(async (req, res) => {
@@ -77,7 +78,7 @@ app.post(
   })
 );
 
-//Edit Route
+//Edit Route.
 app.get(
   "/listings/:id/edit",
   wrapAsync(async (req, res) => {
@@ -87,7 +88,7 @@ app.get(
   })
 );
 
-//Update Route
+//Update Route.
 app.put(
   "/listings/:id",
   wrapAsync(async (req, res) => {
@@ -99,7 +100,7 @@ app.put(
     res.redirect(`/listings/${id}`);
   })
 );
-// Delete Route
+// Delete Route.
 app.delete(
   "/listings/:id",
   wrapAsync(async (req, res) => {
@@ -136,6 +137,7 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error.ejs", { message });
   // res.status(statusCode).send(message);
 });
+
 
 const port = 8080;
 app.listen(port, () => {
