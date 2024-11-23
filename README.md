@@ -5,4 +5,4 @@ it is basically fullstack webapplication having core functionalities of Air-bnb.
 
 <h2>Frontend Technologies :</h2>HTML, CSS, Bootstrap, EJS Template, JavaScript. <br>
 <h2>Backend Technologies :</h2> Express.js, Node.js. <br>
-<h2>Database :</h2>MongoDB.
+<h2>Database :</h2>MongoDB (Mongoose).
